@@ -1,4 +1,4 @@
-﻿namespace StephenZeng.TaxCalculator.Domain
+﻿namespace StephenZeng.TaxCalculator.Domain.Models
 {
     public class TaxThreshold
     {

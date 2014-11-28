@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StephenZeng.TaxCalculator.Domain
+namespace StephenZeng.TaxCalculator.Domain.Models
 {
     public class Result
     {

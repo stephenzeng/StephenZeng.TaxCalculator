@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF69FC3C-E9C6-4C70-B154-D2FA0F043AF2}</ProjectGuid>
+    <ProjectGuid>{9DC1D8A6-9DF8-4B9D-856C-0DA2F53AF574}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StephenZeng.TaxCalculator.Domain</RootNamespace>
-    <AssemblyName>StephenZeng.TaxCalculator.Domain</AssemblyName>
+    <RootNamespace>StephenZeng.TaxCalculator.Domain.Test</RootNamespace>
+    <AssemblyName>StephenZeng.TaxCalculator.Domain.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -40,16 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\MustNotBeEmptyAttribute.cs" />
-    <Compile Include="Services\CalculateService.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Services\Interfaces\ICalculateService.cs" />
-    <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\ResultItem.cs" />
-    <Compile Include="Models\TaxRate.cs" />
+    <Compile Include="the_calculate_service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\TaxRateItem.cs" />
-    <Compile Include="Models\TaxThreshold.cs" />
+    <Compile Include="the_tax_rate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StephenZeng.TaxCalculator.Domain\StephenZeng.TaxCalculator.Domain.csproj">
+      <Project>{DF69FC3C-E9C6-4C70-B154-D2FA0F043AF2}</Project>
+      <Name>StephenZeng.TaxCalculator.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

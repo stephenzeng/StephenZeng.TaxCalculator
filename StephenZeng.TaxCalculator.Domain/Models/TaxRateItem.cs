@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using StephenZeng.TaxCalculator.Domain.Attributes;
 
-namespace StephenZeng.TaxCalculator.Domain
+namespace StephenZeng.TaxCalculator.Domain.Models
 {
     public class TaxRateItem
     {
-        public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
+
+        [MustNotBeEmpty]
         public ICollection<TaxThreshold> Thresholds { get; set; } 
     }
 }

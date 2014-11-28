@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StephenZeng.TaxCalculator.Domain", "StephenZeng.TaxCalculator.Domain\StephenZeng.TaxCalculator.Domain.csproj", "{DF69FC3C-E9C6-4C70-B154-D2FA0F043AF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StephenZeng.TaxCalculator.Domain.Test", "StephenZeng.TaxCalculator.Domain.Test\StephenZeng.TaxCalculator.Domain.Test.csproj", "{9DC1D8A6-9DF8-4B9D-856C-0DA2F53AF574}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{DF69FC3C-E9C6-4C70-B154-D2FA0F043AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF69FC3C-E9C6-4C70-B154-D2FA0F043AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF69FC3C-E9C6-4C70-B154-D2FA0F043AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DC1D8A6-9DF8-4B9D-856C-0DA2F53AF574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC1D8A6-9DF8-4B9D-856C-0DA2F53AF574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC1D8A6-9DF8-4B9D-856C-0DA2F53AF574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC1D8A6-9DF8-4B9D-856C-0DA2F53AF574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

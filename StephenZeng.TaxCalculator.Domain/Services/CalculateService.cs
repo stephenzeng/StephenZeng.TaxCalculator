@@ -1,20 +1,26 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using StephenZeng.TaxCalculator.Domain.Interfaces;
+using StephenZeng.TaxCalculator.Domain.Models;
+using StephenZeng.TaxCalculator.Domain.Services.Interfaces;
 
-namespace StephenZeng.TaxCalculator.Domain
+namespace StephenZeng.TaxCalculator.Domain.Services
 {
-    public class Calculator : ICalculator
+    public class CalculateService : ICalculateService
     {
         public Result Calculate(TaxRate taxRate, decimal income)
         {
+            if (income <= 0)
+                throw new ArgumentException("income must be larger than 0");
+
             var result = new Result
             {
                 Description = string.Format("Tax calculate result for income {0} in year {1} - {2}",
                     income.ToString("C"),
                     taxRate.Year,
                     taxRate.Year + 1),
+                TaxableIncome = income,
                 Items = new Collection<ResultItem>()
             };
 
@@ -22,7 +28,7 @@ namespace StephenZeng.TaxCalculator.Domain
             {
                 var taxItem = new ResultItem
                 {
-                    Name = item.Name,
+                    Name = item.Description,
                     Amount = CalculateTaxItem(item.Thresholds, income)
                 };
 
