@@ -4,10 +4,6 @@
     ViewBag.Title = "Tax Rates";
 }
 
-<div class="clearfix">
-    @Html.ActionLink("Add Tax Rates", "Add", "TaxRate", null, new { @class = "btn btn-default pull-right" })
-</div>
-
 <div class="panel panel-default margin-top-5">
     <div class="panel-heading">
         <span class="fa fa-tags"></span> 
@@ -17,10 +13,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Year</th>
                     <th>Description</th>
-                    <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -29,18 +24,13 @@
                     foreach (var taxRate in Model)
                     {
                         <tr>
+                            <td style="width: 100px;">
+                                <a href="@Url.Action("Details", "TaxRate", new {taxRate.Id}, null)" title="View">
+                                    <span class="fa fa-file-text-o"></span> View
+                                </a>
+                            </td>
                             <td>@taxRate.Year</td>
                             <td>@taxRate.Description</td>
-                            <td>
-                                <a href="#" onclick=" copyConfig('@Url.Action("Copy", "TaxRate", new {taxRate.Id}, null)'); " title="Copy this tax rate">
-                                    <span class="fa fa-copy"></span> Copy
-                                </a>
-                            </td>
-                            <td>
-                                <a href="@Url.Action("Edit", "TaxRate", new {taxRate.Id}, null)" title="Edit">
-                                    <span class="fa fa-edit"></span> Edit
-                                </a>
-                            </td>
                         </tr>
                     }
                 }

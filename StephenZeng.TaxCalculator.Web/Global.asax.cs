@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Raven.Client;
-using Raven.Client.Document;
+using Raven.Client.Embedded;
 using StephenZeng.TaxCalculator.Web.Controllers;
 
 namespace StephenZeng.TaxCalculator.Web
@@ -42,15 +42,18 @@ namespace StephenZeng.TaxCalculator.Web
 
             InitializeDocumentStore();
             BaseController.DocumentStore = DocumentStore;
+
+            DatabaseConfig.Seed(DocumentStore);
         }
 
         private static void InitializeDocumentStore()
         {
             if (DocumentStore != null) return;
 
-            DocumentStore = new DocumentStore()
+            DocumentStore = new EmbeddableDocumentStore()
             {
-                ConnectionStringName = "RavenDB"
+                ConnectionStringName = "Local",
+                RunInMemory = true
             }.Initialize();
         }
     }

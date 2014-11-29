@@ -29,6 +29,12 @@ namespace StephenZeng.TaxCalculator.Web.Controllers
             return View(list);
         }
 
+        public ActionResult Details(int id)
+        {
+            var taxRate = DocumentSession.Load<TaxRate>(id);
+            return View(taxRate);
+        }
+
         [HttpGet]
         public ActionResult Add()
         {
