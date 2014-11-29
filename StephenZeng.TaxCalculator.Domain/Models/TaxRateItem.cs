@@ -10,6 +10,6 @@ namespace StephenZeng.TaxCalculator.Domain.Models
         public string Description { get; set; }
 
         [MustNotBeEmpty]
-        public ICollection<TaxThreshold> Thresholds { get; set; } 
+        public List<TaxThreshold> Thresholds { get; set; } 
     }
 }

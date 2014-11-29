@@ -1,0 +1,97 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.field-validation-error {
+    display: block;
+    color: red;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.site-header {
+    background-color: #dfdfdf!important;
+    color: #444!important;
+}
+
+.site-header a {
+    color: #333;
+}
+
+.site-header .navbar-brand {
+    font-family: Tahoma, Geneva, sans-serif; 
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.margin-top-25 {
+    margin-top: 25px;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0!important;
+}
+
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+div .console-panel {
+    background-color: black;
+    color: #f1f1f1;
+    border: 0;
+    padding: 25px;
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.greenyellow {
+    color: greenyellow;
+}
+
+.disabledLink {
+    padding: 3px 20px;
+    display: block;
+    color: lightgray;
+    clear: both;
+    white-space: nowrap;
+}
+
+h1 {
+    font-family: Tahoma, Geneva, sans-serif!important; 
+    font-weight: bold!important;
+    font-size: 14px!important;
+    text-transform: uppercase;
+    border-bottom: 1px solid #aaa;
+    color: #666!important;
+}

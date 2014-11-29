@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,13 +9,17 @@ namespace StephenZeng.TaxCalculator.Domain.Models
 {
     public class TaxRate : IValidatableObject
     {
+        public int Id { get; set; }
+
         public int Year { get; set; }
 
         [Required]
         public string Description { get; set; }
 
         [MustNotBeEmpty]
-        public ICollection<TaxRateItem> Items { get; set; }
+        public List<TaxRateItem> Items { get; set; }
+
+        public DateTime CreateAt { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

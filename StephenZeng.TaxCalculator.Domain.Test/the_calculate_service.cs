@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using StephenZeng.TaxCalculator.Domain.Models;
 using StephenZeng.TaxCalculator.Domain.Services;
@@ -12,12 +13,12 @@ namespace StephenZeng.TaxCalculator.Domain.Test
         {
             Year = 2014,
             Description = "Tax rates in finacial year 2014 - 2015",
-            Items = new[]
+            Items =  new List<TaxRateItem>
             {
                 new TaxRateItem
                 {
                     Description = "Income tax rates",
-                    Thresholds = new[]
+                    Thresholds = new List<TaxThreshold>
                     {
                         new TaxThreshold {Start = 0m, End = 18200m, Rate = 0m},
                         new TaxThreshold {Start = 18200m, End = 37000m, Rate = 0.19m},
@@ -29,7 +30,7 @@ namespace StephenZeng.TaxCalculator.Domain.Test
                 new TaxRateItem
                 {
                     Description = "Medicare levy rates",
-                    Thresholds = new[]
+                    Thresholds = new List<TaxThreshold>()
                     {
                         new TaxThreshold {Start = 0m, Rate = 0m},
                         new TaxThreshold {Start = 20542m, Rate = 0.1m},

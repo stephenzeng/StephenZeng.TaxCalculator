@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using NUnit.Framework;
@@ -45,10 +46,14 @@ namespace StephenZeng.TaxCalculator.Domain.Test
         public void tax_rate_item_description_must_not_be_empty()
         {
             //arrange
-            var taxRate = new TaxRate { Description = "Test", Items = new[]
+            var taxRate = new TaxRate
             {
-                new TaxRateItem(), 
-            }};
+                Description = "Test",
+                Items = new List<TaxRateItem>
+                {
+                    new TaxRateItem(),
+                }
+            };
             var validatonContext = new ValidationContext(taxRate, null, null);
             var validationResults = new Collection<ValidationResult>();
 
@@ -67,9 +72,9 @@ namespace StephenZeng.TaxCalculator.Domain.Test
             var taxRate = new TaxRate
             {
                 Description = "Test",
-                Items = new[]
+                Items = new List<TaxRateItem>
                 {
-                    new TaxRateItem {Description = "Test", Thresholds = new[] {new TaxThreshold {Start = 1}}}
+                    new TaxRateItem {Description = "Test", Thresholds =  new List<TaxThreshold>() {new TaxThreshold {Start = 1}}}
                 }
             };
             var validatonContext = new ValidationContext(taxRate, null, null);
@@ -90,9 +95,9 @@ namespace StephenZeng.TaxCalculator.Domain.Test
             var taxRate = new TaxRate
             {
                 Description = "Test",
-                Items = new[]
+                Items = new List<TaxRateItem>
                 {
-                    new TaxRateItem {Description = "Test", Thresholds = new[]
+                    new TaxRateItem {Description = "Test", Thresholds = new List<TaxThreshold>()
                     {
                         new TaxThreshold {Start = 1, End = 2},
                         new TaxThreshold {Start = 2, End = 4},

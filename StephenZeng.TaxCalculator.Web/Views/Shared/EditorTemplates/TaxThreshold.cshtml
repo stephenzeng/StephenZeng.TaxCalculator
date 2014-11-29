@@ -1,0 +1,28 @@
+﻿@model StephenZeng.TaxCalculator.Domain.Models.TaxThreshold
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="input-group">
+            <span class="input-group-addon">
+                @Html.LabelFor(m => m.Start)
+            </span>
+            @Html.TextBoxFor(m => m.Start, new{@class="form-control"})
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="input-group">
+            <span class="input-group-addon">
+                @Html.LabelFor(m => m.End)
+            </span>
+            @Html.TextBoxFor(m => m.End, new{@class="form-control"})
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="input-group">
+            <span class="input-group-addon">
+                @Html.LabelFor(m => m.Rate)
+            </span>
+            @Html.TextBoxFor(m => m.Rate, new{@class="form-control"})
+        </div>
+    </div>
+</div>
