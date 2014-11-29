@@ -1,14 +1,18 @@
-﻿using System.Web;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
 using Raven.Client;
 using Raven.Client.Embedded;
+using StephenZeng.TaxCalculator.Domain.Services.Interfaces;
 using StephenZeng.TaxCalculator.Web.Controllers;
 
 namespace StephenZeng.TaxCalculator.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         public static IDocumentStore DocumentStore { get; private set; }
 
@@ -44,6 +48,7 @@ namespace StephenZeng.TaxCalculator.Web
             BaseController.DocumentStore = DocumentStore;
 
             DatabaseConfig.Seed(DocumentStore);
+            SetupDependencyInjection();
         }
 
         private static void InitializeDocumentStore()
@@ -55,6 +60,20 @@ namespace StephenZeng.TaxCalculator.Web
                 ConnectionStringName = "Local",
                 RunInMemory = true
             }.Initialize();
+        }
+
+        private static void SetupDependencyInjection()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+
+            builder.RegisterAssemblyTypes(typeof (ICalculateService).Assembly)
+                .Where(t => t.Name.EndsWith("Service"))
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
+            
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

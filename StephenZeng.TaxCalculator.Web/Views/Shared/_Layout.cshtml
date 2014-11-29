@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <span class="navbar-brand">
-                    <a href="@Url.Action("Index", "Home")" >TAX CALCULATOR</a>
+                    <a href="@Url.Action("Index", "Home")"><i class="fa fa-coffee fa-lg"></i> TAX<span style="color: #cc0000">C</span>ALCULATOR</a>
                 </span>
             </div>
             <div class="navbar-collapse collapse">
@@ -44,7 +44,11 @@
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <span id="alertText">test</span>
             </div>
-            <h1>@ViewBag.Title</h1>
+            @if (!string.IsNullOrEmpty(ViewBag.Title))
+            {
+                <h1>@ViewBag.Title</h1>
+            }
+
             <div class="margin-top-25">
                 @RenderBody()
             </div>

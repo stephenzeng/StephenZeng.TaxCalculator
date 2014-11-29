@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace StephenZeng.TaxCalculator.Domain.Models
@@ -9,6 +10,8 @@ namespace StephenZeng.TaxCalculator.Domain.Models
         public decimal TaxableIncome { get; set; }
         public ICollection<ResultItem> Items { get; set; }
 
+        [Display(Name = "Total tax payable")]
+        [DataType(DataType.Currency)]
         public decimal TotalAmount
         {
             get { return Items.Sum(i => i.Amount); }

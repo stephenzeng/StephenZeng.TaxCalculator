@@ -171,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\TaxCalculateViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
     <Content Include="Views\Shared\EditorTemplates\TaxRateItem.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\TaxThreshold.cshtml" />
     <Content Include="Views\TaxRate\Details.cshtml" />
+    <Content Include="Views\Calculator\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,8 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Calculator\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StephenZeng.TaxCalculator.Domain\StephenZeng.TaxCalculator.Domain.csproj">

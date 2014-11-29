@@ -1,97 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using StephenZeng.TaxCalculator.Domain.Models;
+using StephenZeng.TaxCalculator.Domain.Services.Interfaces;
+using StephenZeng.TaxCalculator.Web.Models;
 
 namespace StephenZeng.TaxCalculator.Web.Controllers
 {
-    public class CalculatorController : Controller
+    public class CalculatorController : BaseController
     {
-        //
-        // GET: /Calculator/
+        private readonly ICalculateService _calculateService;
+
+        public CalculatorController(ICalculateService calculateService)
+        {
+            _calculateService = calculateService;
+        }
+
         public ActionResult Index()
         {
+            var list = DocumentSession.Query<TaxRate>()
+                .OrderByDescending(r => r.Year)
+                .ToArray()
+                .Select(r => new SelectListItem
+                {
+                    Text = r.Description,
+                    Value = r.Id.ToString(),
+                });
+
+            ViewBag.TaxRatesList = list;
+
             return View();
         }
 
-        //
-        // GET: /Calculator/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Calculator/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Calculator/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Index(TaxCalculateViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                var taxRate = DocumentSession.Load<TaxRate>(model.SelectedYear);
+                model.Result = _calculateService.Calculate(taxRate, model.TaxableIncome.Value);
             }
-            catch
+            else
             {
-                return View();
+                ShowErrorMessage("Please input valid data");
             }
-        }
 
-        //
-        // GET: /Calculator/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            var list = DocumentSession.Query<TaxRate>()
+                .OrderByDescending(r => r.Year)
+                .ToArray()
+                .Select(r => new SelectListItem
+                {
+                    Text = r.Description,
+                    Value = r.Id.ToString(),
+                });
 
-        //
-        // POST: /Calculator/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+            ViewBag.TaxRatesList = list;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Calculator/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Calculator/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
     }
 }
