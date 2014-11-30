@@ -94,6 +94,12 @@ publish/
 
 # Publish Web Output
 *.Publish.xml
+*.azurePubxml
+# TODO: Comment the next line if you want to check in your web deploy settings 
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
 
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
