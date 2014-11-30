@@ -19,25 +19,37 @@
                     <span class="icon-bar"></span>
                 </button>
                 <span class="navbar-brand">
-                    <a href="@Url.Action("Index", "Home")"><i class="fa fa-coffee fa-lg"></i> TAX<span style="color: #cc0000">C</span>ALCULATOR</a>
+                    <a href="@Url.Action("Index", "Home")">
+                        <i class="fa fa-coffee fa-lg"></i>
+                        TAX<span style="color: #cc0000">C</span>ALCULATOR
+                    </a>
                 </span>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="@Url.Action("Index", "Home")" ><i class="fa fa-home fa-lg"></i> Home</a>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fa fa-home fa-lg"></i>
+                            Home
+                        </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "Calculator")" ><i class="fa fa-calculator fa-lg"></i> Calculator</a>
+                        <a href="@Url.Action("Index", "Calculator")">
+                            <i class="fa fa-calculator fa-lg"></i>
+                            Calculator
+                        </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "TaxRate")" ><i class="fa fa-cog fa-lg"></i> Tax Rate</a>
+                        <a href="@Url.Action("Index", "TaxRate")">
+                            <i class="fa fa-cog fa-lg"></i>
+                            Tax Rate
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div id="contentContainer">
+    <div class="content-container">
         <div class="container body-content">
             @Html.Partial("_MessagePanel")
             <div id="alertDiv" class="alert alert-danger margin-top-5" style="display: none;">
@@ -54,7 +66,18 @@
             </div>
         </div>
     </div>
+
     <footer>
+        <div class="container">
+            <i class="fa fa-coffee fa-lg"></i>
+            <p>
+                Fork this project in <a href="https://github.com/stephenzeng/StephenZeng.TaxCalculator"><i class="fa fa-github"></i> GitHub</a>
+                <br>
+                Contact me at zeng.stephen@gmail.com
+                <br/>
+                <span class="fa fa-copyright"> 2014</span>
+            </p>
+        </div>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

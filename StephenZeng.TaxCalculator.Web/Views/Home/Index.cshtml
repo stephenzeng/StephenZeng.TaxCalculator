@@ -1,71 +1,12 @@
-﻿@{
-    Layout = null;
-}
-
-@using System.Web.Optimization
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Tax Calculator</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-<body>
-    <div class="navbar navbar-fixed-top site-header">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <span class="navbar-brand">
-                    <a href="@Url.Action("Index", "Home")"><i class="fa fa-coffee fa-lg"></i>TAX<span style="color: #cc0000">C</span>ALCULATOR</a>
-                </span>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav pull-right">
-                    <li>
-                        <a href="@Url.Action("Index", "Home")" ><i class="fa fa-home fa-lg"></i> Home</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Calculator")" ><i class="fa fa-calculator fa-lg"></i> Calculator</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "TaxRate")" ><i class="fa fa-cog fa-lg"></i> Tax Rate</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div style="background-color: #f2f2f2;">
-        <div class="container">
-            <div class="jumbotron text-center" style="background: none;">
-                <span class="fa fa-coffee" style="font-size: 600%;margin-top: 80px;"></span>
-                <p class="welcome-header">
-                    TAX<span style="color: #cc0000">C</span>ALCULATOR
-                </p>
-                <p class="text-center" style="width: 90%; font-size: 28px; margin: auto;color: #666;">
-                    A comprehensive personal income tax calculator that helps you to understand the complicated tax calculations
-                </p>
-            </div>
-            <div class="row text-center" style="margin-bottom: 160px;">
-                <a href="@Url.Action("Index", "Calculator")" class="btn btn-default btn-lg" style="width:200px; padding: 10px; background: none;">Start Now</a>
-            </div>
-        </div>
-
-
-    </div>
-    <footer>
-    </footer>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/bootstrap")
-</body>
-</html>
-
-
+﻿<div class="jumbotron text-center" style="background: none;">
+    <span class="fa fa-coffee" style="font-size: 600%; margin-top: 20px;"></span>
+    <p class="welcome-header">
+        TAX<span style="color: #cc0000">C</span>ALCULATOR
+    </p>
+    <p class="text-center" style="width: 90%; font-size: 26px; margin: auto; color: #666;">
+        A comprehensive personal income tax calculator that helps you to understand the complicated tax calculations
+    </p>
+</div>
+<div class="row text-center margin-bottom-25">
+    <a href="@Url.Action("Index", "Calculator")" class="btn btn-default btn-lg text-center" style="width:220px; padding: 10px;">Start Now</a>
+</div>
