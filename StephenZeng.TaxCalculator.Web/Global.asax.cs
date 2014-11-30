@@ -57,7 +57,6 @@ namespace StephenZeng.TaxCalculator.Web
 
             DocumentStore = new EmbeddableDocumentStore()
             {
-                ConnectionStringName = "Local",
                 RunInMemory = true
             }.Initialize();
         }
