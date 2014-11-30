@@ -1,13 +1,15 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
     background-color: #f6f6f6;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #333!important;
 }
 
 .content-container {
     background-color: #fff; 
     border-bottom: 1px solid #eee;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 150px;
 }
 
@@ -47,13 +49,13 @@ footer .container {
 .site-header .navbar-brand {
     font-family: Tahoma, Geneva, sans-serif; 
     font-weight: bolder;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .jumbotron .welcome-header {
     font-family: Tahoma, Geneva, sans-serif; 
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 2.2em;
 }
 
 .margin-top-5 {
